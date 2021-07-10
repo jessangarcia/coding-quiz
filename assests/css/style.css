@@ -68,3 +68,9 @@ nav h3{
 .hide {
     display: none;
 }
+
+.score-list {
+    padding: 5px;
+    text-align: left;
+    background-color: rgba(207, 85, 205, 0.4);
+}

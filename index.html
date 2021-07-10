@@ -10,7 +10,10 @@
 <body>
     <nav>
         <a href="/" class="scores" target="_blank" rel="noopener noreferrer"> View High scores</a>
-        <h3 class="timer">Time: <span id="timer"></span> </h3>
+        <div id="timer">
+            <h3 class="time">Time: <span id="timer">0:00</span> </h3>
+        </div>
+        <div class="hide" id="timeOut">Out of Time!</div>
     </nav>
 
 
@@ -27,99 +30,33 @@
     <!--Quiz Questions-->
     <div class="container">
         <div class="hide que1" id="question-container">
-            <h2 id="question">What does HTML stand for?</h2>
+            <h2 id="questionTitle"></h2>
             <div>
-                <button class="answer-btn btn" id="answer">Hyper Tag Markup Language</button>
-                <button class="answer-btn btn" id="answer">Hyper Text Markup Language</button>
-                <button class="answer-btn btn" id="answer">Hyperlinks Text Mark Language</button>
-                <button class="answer-btn btn" id="answer">Hyperlinking Text Marking Language</button>
+                <button class="answer-btn btn" id="answer0"></button>
+                <button class="answer-btn btn" id="answer1"></button>
+                <button class="answer-btn btn" id="answer2"></button>
+                <button class="answer-btn btn" id="answer3"></button>
             </div>
+            <p id="answerCheck" class="hide"></p>
         </div>
     </div>
-    <!--Question 2-->
-    <div class="container">
-        <div class="hide que2" id="question-container">
-            <h2 id="question">What symbol indicates a tag?</h2>
-            <div>
-                <button class="answer-btn btn" id="answer">Angle brackets e.g</button>
-                <button class="answer-btn btn" id="answer">Curved brackets e.g. {,}</button>
-                <button class="answer-btn btn" id="answer">Commas e.g. ','</button>
-                <button class="answer-btn btn" id="answer">Exclamation marks e.g. !</button>
-            </div>
-        </div>
+
+    <!--Score-->
+    <div class="container hide">
+        <h2>Final Score <span id="final-score"></span> !</h2>
+        <p>
+            Enter your Initials: <input type="text" id="nameInput" class="">
+            <button type="submit" id="nameSubmitBtn" class="btn btn-info">Submit</button>
+        </p>
     </div>
-    <!--Question 3-->
-    <div class="container">
-        <div class="hide que3" id="question-container">
-            <h2 id="question" >Which of these is a genuine tag keyword?</h2>
-            <div>
-                <button class="answer-btn btn" id="answer">Header</button>
-                <button class="answer-btn btn" id="answer">Bold</button>
-                <button class="answer-btn btn" id="answer">Body</button>
-                <button class="answer-btn btn" id="answer">Image</button>
-            </div>
-        </div>
+
+    <!--Highscores-->
+    <div id="score-page" class="container score-page hide">
+        <h2>High Scores</h2>
+        <div id="highscoreList" class="score-list">hello</div>
+        <button type="submit" class="btn go-back" id="go-back-home">Go Back</button>
     </div>
-    <!--Question 4-->
-    <div class="container">
-        <div class="hide que4" id="question-container">
-            <h2 id="question">What is the correct tag for a line break?</h2>
-            <div>
-                <button class="answer-btn btn" id="answer">"brk /"</button>
-                <button class="answer-btn btn" id="answer">"line /"</button>
-                <button class="answer-btn btn" id="answer">"bk /"</button>
-                <button class="answer-btn btn" id="answer">"bk /"</button>
-            </div>
-        </div>
-    </div>
-    <!--Question 5-->
-    <div class="container">
-        <div class="hide que5" id="question-container">
-            <h2 id="question">What does CSS stand for?</h2>
-            <div>
-                <button class="answer-btn btn" id="answer">Computing Style Sheet</button>
-                <button class="answer-btn btn" id="answer">Creative Style System</button>
-                <button class="answer-btn btn" id="answer">Cascading Style Sheet</button>
-                <button class="answer-btn btn" id="answer">Creative Styling Sheet<button>
-            </div>
-        </div>
-    </div>
-    <!--Question 6-->
-    <div class="container">
-        <div class="hide que6" id="question-container">
-            <h2 id="question">Where should a CSS file be referenced in a HTML file?</h2>
-            <div>
-                <button class="answer-btn btn" id="answer">Before any HTML code</button>
-                <button class="answer-btn btn" id="answer">After all HTML code</button>
-                <button class="answer-btn btn" id="answer">Inside the head section<button>
-                <button class="answer-btn btn" id="answer">Inside the body section</button>
-            </div>
-        </div>
-    </div>
-    <!--Question 7-->
-    <div class="container">
-        <div class="hide que7" id="question-container">
-            <h2 id="question">What is the correct format for aligning written content to the center of the page in CSS?</h2>
-            <div>
-                <button class="answer-btn btn" id="answer">Text-align:center;</button>
-                <button class="answer-btn btn" id="answer">Font-align:center;</button>
-                <button class="answer-btn btn" id="answer">Text:align-center;</button>
-                <button class="answer-btn btn" id="answer">Font:align-center;</button>
-            </div>
-        </div>
-    </div>
-    <!--Question 8-->
-    <div class="container">
-        <div class="hide que8" id="question-container">
-            <h2 id="question">What is the correct format for changing the background colour of a div in CSS?</h2>
-            <div>
-                <button class="answer-btn btn" id="answer">Bg-color:red;</button>
-                <button class="answer-btn btn" id="answer">Background:red;</button>
-                <button class="answer-btn btn" id="answer">Background-colour:red;</button>
-                <button class="answer-btn btn" id="answer">Background-color:red;</button>
-            </div>
-        </div>
-    </div>
+   
     
     <script src="./assests/js/script.js"></script>
 </body>
