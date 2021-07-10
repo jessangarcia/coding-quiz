@@ -9,27 +9,25 @@
 </head>
 <body>
     <nav>
-        <a href="/" class="scores" target="_blank" rel="noopener noreferrer"> View High scores</a>
-        <div id="timer">
-            <h3 class="time">Time: <span id="timer">0:00</span> </h3>
-        </div>
-        <div class="hide" id="timeOut">Out of Time!</div>
+        <a href="score.html" class="scores" target="_self" rel="noopener noreferrer"> View High scores</a>
+        <h3 class="time">Time: <span id="timer">0</span> </h3>
     </nav>
 
 
-    <main class="container main-page" id="main-page">
-        <h1 class="page-title">Coding Quiz Challenge!</h1>
-        <p class="instructions">Try to answer the following code-related questions within the time limit. 
-        <br>
-        Keep in mind in mind incorrect answers will penalize your score/time
-        <br>
-        by ten seconds.</p>
-        <button class="start-btn btn" id="start-btn">Start Quiz</button>
-    </main>
-
-    <!--Quiz Questions-->
     <div class="container">
-        <div class="hide que1" id="question-container">
+        <!--starting page-->
+        <main class="main-page" id="main-page">
+            <h1 class="page-title">Coding Quiz Challenge!</h1>
+            <p class="instructions">Try to answer the following code-related questions within the time limit. 
+            <br>
+            Keep in mind in mind incorrect answers will penalize your score/time
+            <br>
+            by ten seconds.</p>
+            <button class="start-btn btn" id="start-btn">Start Quiz</button>
+        </main>
+    
+        <!--Quiz Questions-->
+        <div class="hide" id="questionPage">
             <h2 id="questionTitle"></h2>
             <div>
                 <button class="answer-btn btn" id="answer0"></button>
@@ -39,24 +37,16 @@
             </div>
             <p id="answerCheck" class="hide"></p>
         </div>
+    
+        <!--Score-->
+        <div class="final-page hide" id="finalPage">
+            <h2>Final Score <span id="final-score"></span> !</h2>
+            <p>
+                Enter your Initials: <input type="text" id="nameInput" class="">
+                <button type="submit" id="nameSubmitBtn" class="btn btn-info">Submit</button>
+            </p>
+        </div>
     </div>
-
-    <!--Score-->
-    <div class="container hide">
-        <h2>Final Score <span id="final-score"></span> !</h2>
-        <p>
-            Enter your Initials: <input type="text" id="nameInput" class="">
-            <button type="submit" id="nameSubmitBtn" class="btn btn-info">Submit</button>
-        </p>
-    </div>
-
-    <!--Highscores-->
-    <div id="score-page" class="container score-page hide">
-        <h2>High Scores</h2>
-        <div id="highscoreList" class="score-list">hello</div>
-        <button type="submit" class="btn go-back" id="go-back-home">Go Back</button>
-    </div>
-   
     
     <script src="./assests/js/script.js"></script>
 </body>

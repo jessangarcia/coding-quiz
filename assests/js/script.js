@@ -41,23 +41,32 @@ const questions = [
     },
 ]
 
+var questionIndex = 0;
+var time = questions.length * 15;
+var timerId;
+//timer variables
+var timer = document.getElementById("timer");
+
+//main page variables
 var startButton = document.getElementById("start-btn");
 var mainPage = document.getElementById("main-page")
-var questionContainerEl = document.getElementById("question-container")
+
+//question variables
+var questionContainerEl = document.getElementById("questionPage")
 
 
 let actualQuestion
 
-startButton.addEventListener("click", startGame);
-function startGame() {
-    console.log("started")
-    mainPage.classList.add("hide")
-    startButton.classList.add("hide")
-    questionContainerEl.classList.remove("hide")
+function startGame() {}
 
-}
+function getQuestion() {}
 
-function setNextQuestion() {}
-function showQuestion() {}
+function answerSelect() {}
 
-function selectAnswer() {}
+function endQuiz() {}
+
+function timeLeft() {}
+
+function saveScores() {}
+
+function enterScore() {}

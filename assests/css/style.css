@@ -45,6 +45,30 @@ nav h3{
     line-height: 1;
     margin: 10px auto 10px auto;
 } 
+/*score page*/
+.score-page{
+    margin: 100px auto 0 auto;
+    max-width: 600px;
+    
+}
+.score-list{
+    padding: 5px;
+    text-align: left;
+}
+ol {
+    padding-left: 0px;
+    max-height: 400px;
+    overflow: auto;
+  }
+  
+  li {
+    padding: 5px;
+    list-style: circle inside none;
+  }
+  
+  li:nth-child(odd) {
+    background-color: #dc9be9;
+  }
 
 /*button*/
 .btn {
@@ -67,10 +91,4 @@ nav h3{
 
 .hide {
     display: none;
-}
-
-.score-list {
-    padding: 5px;
-    text-align: left;
-    background-color: rgba(207, 85, 205, 0.4);
 }
