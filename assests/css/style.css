@@ -92,3 +92,13 @@ ol {
 .hide {
     display: none;
 }
+
+.check {
+    font-style: italic;
+    border-top: 2px solid gray;
+    color: gray;
+    text-align: left;
+    margin-top: 15px;
+    font-size: 20px;
+    padding-top: 10px;
+}

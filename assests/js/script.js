@@ -30,7 +30,7 @@ var questionIndex = 0;
 var time = questions.length * 15;
 var timerId;
 //timer variables
-var timer = document.getElementById("timer");
+var timerEl = document.getElementById("timer");
 
 //main page variables
 var startButton = document.getElementById("start-btn");
@@ -42,6 +42,7 @@ var answerOneEl = document.getElementById("answer0")
 var answerTwoEl = document.getElementById("answer1")
 var answerThreeEl = document.getElementById("answer2")
 var answerFourEl = document.getElementById("answer3")
+var answerCheckEl = document.getElementById("answer-check")
 
 
 
@@ -58,7 +59,7 @@ function startQuiz() {
     //timerId = setInterval(clockTick, 1000);
 
     //show timer
-    timer.textContent = time;
+    timerEl.textContent = time;
 
     //call questions
     showQuiz();
@@ -76,13 +77,47 @@ function getQuestion() {
     answerTwoEl.textContent = questions[questionIndex].choices[1];
     answerThreeEl.textContent = questions[questionIndex].choices[2];
     answerFourEl.textContent = questions[questionIndex].choices[3];
-
-
 }
 
-function answerSelect() {}
+function answerSelect(answer) {
+    if (this.value !== questions[questionIndex].answer) {
+        //remove time
+        //time -= 15;
 
-function endQuiz() {}
+        if (time < 0) {
+            time = 0;
+        }
+
+        //show new time
+        timer.textContent = time;
+
+        answerCheckEl.textContent = "Correct!"
+    } else {
+        answerCheckEl.textContent = "Wrong!"
+    }
+
+    questionIndex++;
+    if (questionIndex < questions.length) {
+        getQuestion();
+    } else {
+        endQuiz();
+    }
+};
+
+function choiceA() { answerSelect(0); }
+function choiceB() { answerSelect(1); }
+function choiceC() { answerSelect(2); }
+function choiceD() { answerSelect(3); }
+
+function endQuiz() {
+    var endPageEl = document.getElementById("finalPage");
+    endPageEl.removeAttribute("class");
+
+    //show score
+
+    //hide questions 
+    questionContainerEl.setAttribute("class", "hide");
+}
 
 function timeLeft() {}
 
@@ -92,3 +127,8 @@ function enterScore() {}
 
 //button to start quiz
 startButton.onclick = startQuiz;
+
+answerOneEl.addEventListener("click", choiceA);
+answerTwoEl.addEventListener("click", choiceB);
+answerThreeEl.addEventListener("click", choiceC);
+answerFourEl.addEventListener("click", choiceD);
