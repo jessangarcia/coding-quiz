@@ -44,6 +44,11 @@ var answerThreeEl = document.getElementById("answer2")
 var answerFourEl = document.getElementById("answer3")
 var answerCheckEl = document.getElementById("check")
 
+//score variables
+var nameEnter = document.getElementById("nameInput")
+
+var submitEl = document.getElementById("nameSubmitBtn")
+
 
 
 
@@ -133,16 +138,38 @@ function endQuiz() {
     endPageEl.removeAttribute("class");
 
     //show score
+    var scoreEl = document.getElementById("final-score");
+    scoreEl.textContent = time;
 
     //hide questions 
     questionContainerEl.setAttribute("class", "hide");
 }
 
-function timeLeft() {}
+//adding highscores, referenced uofu js code
+function saveScores() {
+    var nameInput = nameEnter.value.trim();
 
-function saveScores() {}
+    //if nothing is entered bring an alert 
+    if (nameInput !== "") {
+        //creates new score for current quiz
+        var newScore = {
+            score: time,
+            nameInput: nameInput
+        };
 
-function enterScore() {}
+        //gets saved score from local storage 
+        var highscore = JSON.parse(window.localStorage.getItem("highscore")) || [];
+
+        //saves to storage
+        highscore.push(newScore);
+        window.localStorage.setItem("highscore", JSON.stringify(highscore));
+
+        //adds it to other page
+        window.location.href = "score.html";
+    }
+
+
+}
 
 //button to start quiz
 startButton.onclick = startQuiz;
@@ -151,3 +178,5 @@ answerOneEl.addEventListener("click", choiceA);
 answerTwoEl.addEventListener("click", choiceB);
 answerThreeEl.addEventListener("click", choiceC);
 answerFourEl.addEventListener("click", choiceD);
+
+submitEl.onclick = saveScores;
