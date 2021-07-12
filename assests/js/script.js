@@ -42,7 +42,7 @@ var answerOneEl = document.getElementById("answer0")
 var answerTwoEl = document.getElementById("answer1")
 var answerThreeEl = document.getElementById("answer2")
 var answerFourEl = document.getElementById("answer3")
-var answerCheckEl = document.getElementById("answer-check")
+var answerCheckEl = document.getElementById("check")
 
 
 
@@ -56,7 +56,7 @@ function startQuiz() {
     questionContainerEl.removeAttribute("class");
 
     //start timer
-    //timerId = setInterval(clockTick, 1000);
+    timerId = setInterval(timerStart, 1000);
 
     //show timer
     timerEl.textContent = time;
@@ -70,6 +70,17 @@ function showQuiz() {
     getQuestion();
 }
 
+//defining timer for start function(used code from the uofu page for this)
+function timerStart() {
+    time--;
+    timerEl.textContent = time;
+
+    //if timer runs out 
+    if (time <= 0) {
+        endQuiz();
+    }
+}
+
 function getQuestion() {
     //get question from array 
     quesTitleEl.textContent = questions[questionIndex].question;
@@ -80,9 +91,7 @@ function getQuestion() {
 }
 
 function answerSelect(answer) {
-    if (this.value !== questions[questionIndex].answer) {
-        //remove time
-        //time -= 15;
+    if (questions[questionIndex].answer === questions[questionIndex].choices[answer]) {
 
         if (time < 0) {
             time = 0;
@@ -93,14 +102,21 @@ function answerSelect(answer) {
 
         answerCheckEl.textContent = "Correct!"
     } else {
+        //remove time
+        time -= 15;
         answerCheckEl.textContent = "Wrong!"
     }
 
+    answerCheckEl.setAttribute("class", "check");
+    setTimeout(function(){
+        answerCheckEl.setAttribute("class", "check hide");
+    }, 1000);
+
     questionIndex++;
-    if (questionIndex < questions.length) {
-        getQuestion();
-    } else {
+    if (questionIndex === questions.length) {
         endQuiz();
+    } else {
+        getQuestion();
     }
 };
 
@@ -110,6 +126,9 @@ function choiceC() { answerSelect(2); }
 function choiceD() { answerSelect(3); }
 
 function endQuiz() {
+    //get rid of timer
+    clearInterval(timerId);
+
     var endPageEl = document.getElementById("finalPage");
     endPageEl.removeAttribute("class");
 
