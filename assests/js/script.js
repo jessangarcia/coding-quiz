@@ -1,4 +1,4 @@
-const questions = [
+let questions = [
     {
         question: "Which of the following is not a valid JavaScript variable name?",
         choices:["1. 2names", "2. _first_and_last_name", "3. FirstAndLast", "4. None of the above"],
@@ -24,21 +24,6 @@ const questions = [
         choices:["1. 0", "2. 1", "3. 8", "4. any"],
         answer: "1. 0"
     },
-    {
-        question: "How to write an IF statement in JavaScript?",
-        choices: ["1. if i == 5 then", "2. if i = 5 then", "3. if(i == 5)", "4. if i = 5"],
-        answer: "3. if(i == 5)"
-    },
-    {
-        question: "Which event occurs when the user clicks on an HTML element?",
-        choices: ["1. onclick", "2. onchange", "3. onmouseover", "4. onmouseclick"],
-        answer: "1. onclick"
-    },
-    {
-        question: "Commonly used data types DO NOT include:",
-        choices: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-        answer: "3. alerts"
-    },
 ]
 
 var questionIndex = 0;
@@ -49,17 +34,51 @@ var timer = document.getElementById("timer");
 
 //main page variables
 var startButton = document.getElementById("start-btn");
-var mainPage = document.getElementById("main-page")
 
 //question variables
-var questionContainerEl = document.getElementById("questionPage")
+var questionContainerEl = document.getElementById("questionPage");
+var quesTitleEl = document.getElementById("questionTitle")
+var answerOneEl = document.getElementById("answer0")
+var answerTwoEl = document.getElementById("answer1")
+var answerThreeEl = document.getElementById("answer2")
+var answerFourEl = document.getElementById("answer3")
 
 
-let actualQuestion
 
-function startGame() {}
 
-function getQuestion() {}
+function startQuiz() {
+    //hiding the main page
+    var mainPage = document.getElementById("main-page")
+    mainPage.setAttribute("class", "hide");
+
+    //bring in questions
+    questionContainerEl.removeAttribute("class");
+
+    //start timer
+    //timerId = setInterval(clockTick, 1000);
+
+    //show timer
+    timer.textContent = time;
+
+    //call questions
+    showQuiz();
+
+}
+
+function showQuiz() {
+    getQuestion();
+}
+
+function getQuestion() {
+    //get question from array 
+    quesTitleEl.textContent = questions[questionIndex].question;
+    answerOneEl.textContent = questions[questionIndex].choices[0];
+    answerTwoEl.textContent = questions[questionIndex].choices[1];
+    answerThreeEl.textContent = questions[questionIndex].choices[2];
+    answerFourEl.textContent = questions[questionIndex].choices[3];
+
+
+}
 
 function answerSelect() {}
 
@@ -70,3 +89,6 @@ function timeLeft() {}
 function saveScores() {}
 
 function enterScore() {}
+
+//button to start quiz
+startButton.onclick = startQuiz;
